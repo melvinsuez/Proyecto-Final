@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AdModel } from '../models/ad.model';
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +27,21 @@ export class AdService {
     return this.http.put(`${ this.url }/advert/${ ad.id }`, ad);
   }
 
+
+borrarAd ( id: string ) {
+
+  return this.http.delete(`${ this.url }/advert/${ id }`);
+}
+
   getAd( id: string){
     return this.http.get(`${ this.url }/advert/${ id }`);
   }
 
   getAds(){
-    return this.http.get(`${ this.url }/advert`);
+    return this.http.get(`${ this.url }/advert`)
+    .pipe(
+      delay(1500)
+    );
   }
 
 }

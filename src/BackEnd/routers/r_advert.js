@@ -7,12 +7,9 @@ router.get('/', async (req, res) => {
     res.json(resul);
 })
 
-router.get('/:id', async (req, res) => {
-    const resul = await table1.findById(id)
-    .then(data => {
-        res.json(data);
-});
-
+router.get('/:Id', async (req, res) => {
+    const resul= await table1.findOne({where: { id: req.params.Id }});
+    res.json(resul);
 });
 
 router.post('/', async (req, res) => {

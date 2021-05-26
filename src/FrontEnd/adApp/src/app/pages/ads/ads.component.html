@@ -11,7 +11,8 @@
     </div>
 </div>
 
-<table class="table mt-3 animated fadeIn faster table">
+<table *ngIf="!cargando && ads.length > 0"
+        class="table mt-3 animated fadeIn faster table animated fadeIn faster">
 <thead class="table-dark">
     <tr>
     <th scope="col">ID</th>
@@ -26,7 +27,7 @@
 
 <tbody>
     <tr *ngFor="let ad of ads; let i = index">
-        <th scope='row'>{{ i+1 }}</th>
+        <th scope='row'>{{ ad.id }}</th>
         <td>{{ ad.title }}</td>
         <td>{{ ad.price }}</td>
         <td>{{ ad.discount }}</td>
@@ -42,7 +43,8 @@
                 <i class="fa fa-pen"></i>
             </button>
 
-            <button class="btn btn-danger">
+            <button class="btn btn-danger"
+            (click)="borrarAd ( ad, i )">
                 <i class="fa fa-trash"></i>
             </button>
 
@@ -51,7 +53,8 @@
 </tbody>
 </table>
 
-<div class="alert alert-info text-center mt-3">
+<div *ngIf="cargando"
+    class="alert alert-info text-center mt-3 animated fadeIn low">
     <h4 class="alert-heading">Cargando</h4>
     <p>
         <i class="fa fa-sync-alt fa-spin fa-2x"></i>
@@ -61,7 +64,8 @@
     </p>
 </div>
 
-<div class="alert alert-warning text-center mt-3">
+<div    *ngIf="!cargando && ads.length === 0 " 
+    class="alert alert-warning text-center mt-3 animated fadeIn low">
     <h4 class="alert-heading">No hay Registros</h4>
     <p>
         <i class="fa fa-exclamation fa-2x"></i>
