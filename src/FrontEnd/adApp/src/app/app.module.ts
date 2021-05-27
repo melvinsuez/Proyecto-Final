@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { AdComponent } from './pages/ad/ad.component';
 import { AdsComponent } from './pages/ads/ads.component';
 import { FormsModule } from '@angular/forms';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdComponent,
-    AdsComponent
+    AdsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
