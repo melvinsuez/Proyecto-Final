@@ -40,7 +40,7 @@ borrarAd ( id: string ) {
   getAds(){
     return this.http.get(`${ this.url }/advert`)
     .pipe(
-      delay(1500)
+      delay(500)
     );
   }
 

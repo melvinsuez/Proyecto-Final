@@ -1,0 +1,12 @@
+.card {
+    opacity: 0.8;
+}
+
+h6 {
+    text-decoration:line-through;
+}
+
+h4 {
+    color:blue;
+    font-weight: bold;
+}

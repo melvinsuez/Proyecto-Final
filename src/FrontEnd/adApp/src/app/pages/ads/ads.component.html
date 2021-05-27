@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Listado de Anuncios</h1>
 <hr>
 
@@ -29,9 +30,9 @@
     <tr *ngFor="let ad of ads; let i = index">
         <th scope='row'>{{ ad.id }}</th>
         <td>{{ ad.title }}</td>
-        <td>{{ ad.price }}</td>
-        <td>{{ ad.discount }}</td>
-        <td>{{ ad.offer }}</td>
+        <td>{{ ad.price | currency: 'BRL'}}</td>
+        <td>{{ ad.discount/100 | percent: '2.0' }}</td>
+        <td>{{ ad.offer | currency: 'BRL'}}</td>
         <td>
             <label *ngIf="ad.status" class="badge bg-primary">Activo</label>
             <label *ngIf="!ad.status" class="badge bg-danger">Inactivo</label>
@@ -70,4 +71,5 @@
     <p>
         <i class="fa fa-exclamation fa-2x"></i>
     </p>
+</div>
 </div>
